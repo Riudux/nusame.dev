@@ -1,417 +1,497 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>nusame.dev — Ingeniería de Software, Apps de Alta Fidelidad & Transformación Digital</title>
-  <meta name="description" content="Agencia boutique de ingeniería de software, desarrollo de aplicaciones nativas, arquitectura cloud, sistemas ERP y marketing estratégico de precisión.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      nusame.dev — Ingeniería de Software, Apps de Alta Fidelidad &
+      Transformación Digital
+    </title>
+    <meta
+      name="description"
+      content="Agencia boutique de ingeniería de software, desarrollo de aplicaciones nativas, arquitectura cloud, sistemas ERP y marketing estratégico de precisión."
+    />
 
-  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Estilos Personalizados (Separados en css/styles.css) -->
+    <link rel="stylesheet" href="css/styles.css" />
 
-  <!-- Lucide Icons CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Script Principal & Configuración (Separado en js/main.js) -->
+    <script src="js/main.js"></script>
 
-  <!-- Tailwind Configuration -->
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
-          },
-          colors: {
-            slate: {
-              850: '#0f172a',
-              900: '#0a0f1d',
-              950: '#030712',
-            },
-            electric: {
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-            },
-            neon: {
-              cyan: '#06b6d4',
-              sky: '#38bdf8',
-            }
-          },
-          animation: {
-            'float-slow': 'float 7s ease-in-out infinite',
-            'pulse-subtle': 'pulseSubtle 3s ease-in-out infinite',
-            'shimmer': 'shimmer 2.5s linear infinite',
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-8px)' },
-            },
-            pulseSubtle: {
-              '0%, 100%': { opacity: '0.9', transform: 'scale(1)' },
-              '50%': { opacity: '0.6', transform: 'scale(0.98)' },
-            },
-            shimmer: {
-              '0%': { backgroundPosition: '-200% 0' },
-              '100%': { backgroundPosition: '200% 0' },
-            }
-          }
-        }
-      }
-    }
-  </script>
+    <!-- Tailwind CSS CDN (Lee la configuración inicializada en js/main.js) -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Custom CSS for Dark Modern Aesthetics & Spotlights -->
-  <style>
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #030712;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #1e293b;
-      border-radius: 4px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #334155;
-    }
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
 
-    ::selection {
-      background: #2563eb;
-      color: #ffffff;
-    }
+  <body
+    class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden relative selection:bg-blue-600 selection:text-white"
+  >
+    <!-- Background Ambience & Grid Pattern -->
+    <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+    <div
+      class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] bg-radial-vignette pointer-events-none z-0"
+    ></div>
+    <div
+      class="fixed -top-36 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[110px] pointer-events-none z-0"
+    ></div>
+    <div
+      class="fixed top-1/3 -right-32 w-[420px] h-[420px] bg-sky-400/10 rounded-full blur-[130px] pointer-events-none z-0"
+    ></div>
 
-    /* Subtle Grid Background Pattern */
-    .bg-grid-pattern {
-      background-size: 40px 40px;
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-    }
+    <!-- ========================================================================= -->
+    <!-- 1. NAVBAR FLOTANTE (GLASSMORPHIC LIGHT + ESPACIO PARA LOGO PNG)           -->
+    <!-- ========================================================================= -->
+    <header
+      id="navbar-wrapper"
+      class="fixed top-0 inset-x-0 z-50 transition-all duration-300 px-4 sm:px-6 lg:px-8 pt-4"
+    >
+      <div
+        id="navbar"
+        class="max-w-7xl mx-auto rounded-2xl glass-panel transition-all duration-300 px-4 sm:px-6 py-3 flex items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
+      >
+        <a href="#hero" class="flex items-center gap-3 group">
+          <!-- Imagen del Logo PNG del usuario -->
+          <img
+            src="assets/images/LogoNusame.png"
+            alt="nusame.dev logo"
+            id="brand-logo-img"
+            class="h-8 sm:h-9 w-auto max-h-9 object-contain block transition-transform duration-200 group-hover:scale-125"
+            onerror="
+              this.style.display = 'none';
+              document.getElementById('brand-fallback').style.display = 'flex';
+            "
+          />
 
-    .bg-radial-vignette {
-      background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.18) 0%, rgba(6, 182, 212, 0.06) 35%, transparent 70%);
-    }
+          <!-- Fallback elegante y visible si aún no subes logo.png -->
+          <div
+            id="brand-fallback"
+            class="items-center gap-3"
+            style="display: none"
+          >
+            <div
+              class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 via-sky-500 to-cyan-400 p-[1px] shadow-sm shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-all duration-300"
+            >
+              <div
+                class="w-full h-full bg-white rounded-[11px] flex items-center justify-center"
+              >
+                <svg
+                  class="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform duration-300"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m12 3-8 4.5v9L12 21l8-4.5v-9L12 3Z" />
+                  <path d="m12 12 8-4.5" />
+                  <path d="M12 12v9" />
+                  <path d="m12 12-8-4.5" />
+                  <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                </svg>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <span
+                class="font-bold tracking-tight text-slate-900 flex items-center gap-1 text-base sm:text-lg"
+              >
+                nusame<span class="text-blue-600 font-mono text-sm">.dev</span>
+              </span>
+              <span
+                class="text-[9px] uppercase tracking-widest text-slate-500 font-mono -mt-1 hidden sm:block"
+              >
+                Engineering & Growth
+              </span>
+            </div>
+          </div>
+        </a>
 
-    /* Glassmorphism Classes */
-    .glass-panel {
-      background: rgba(15, 23, 42, 0.45);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
+        <!-- Desktop Nav Links -->
+        <nav
+          class="hidden md:flex items-center gap-1 lg:gap-2 px-3 py-1.5 rounded-full bg-slate-100/80 border border-slate-200/80"
+        >
+          <a
+            href="#servicios"
+            class="px-3.5 py-1.5 text-xs lg:text-sm font-medium text-slate-600 hover:text-slate-950 transition-colors duration-200 rounded-lg hover:bg-white hover:shadow-sm"
+          >
+            Servicios
+          </a>
+          <a
+            href="#soluciones"
+            class="px-3.5 py-1.5 text-xs lg:text-sm font-medium text-slate-600 hover:text-slate-950 transition-colors duration-200 rounded-lg hover:bg-white hover:shadow-sm"
+          >
+            Arquitectura
+          </a>
+          <a
+            href="#proceso"
+            class="px-3.5 py-1.5 text-xs lg:text-sm font-medium text-slate-600 hover:text-slate-950 transition-colors duration-200 rounded-lg hover:bg-white hover:shadow-sm"
+          >
+            Workflow
+          </a>
+          <a
+            href="#metricas"
+            class="px-3.5 py-1.5 text-xs lg:text-sm font-medium text-slate-600 hover:text-slate-950 transition-colors duration-200 rounded-lg hover:bg-white hover:shadow-sm"
+          >
+            Métricas
+          </a>
+        </nav>
 
-    .glass-panel-hover {
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .glass-panel-hover:hover {
-      background: rgba(15, 23, 42, 0.65);
-      border-color: rgba(56, 189, 248, 0.3);
-      transform: translateY(-3px);
-      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.5), 0 0 25px -5px rgba(37, 99, 235, 0.2);
-    }
+        <!-- CTA & Mobile Toggle -->
+        <div class="flex items-center gap-3">
+          <a
+            href="#contacto"
+            class="relative group hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-blue-600 via-blue-500 to-sky-600 shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/35 hover:-translate-y-0.5 transition-all duration-300"
+          >
+            <span class="relative z-10 flex items-center gap-1.5">
+              Iniciar Proyecto
+              <i
+                data-lucide="arrow-right"
+                class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"
+              ></i>
+            </span>
+            <div
+              class="absolute inset-0 rounded-xl bg-gradient-to-r from-sky-500 to-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-[2px]"
+            ></div>
+          </a>
 
-    /* Spotlight Border Technique */
-    .spotlight-card {
-      position: relative;
-    }
-    .spotlight-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      padding: 1.5px;
-      background: radial-gradient(500px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(56, 189, 248, 0.5), transparent 40%);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 2;
-    }
-    .spotlight-card:hover::before {
-      opacity: 1;
-    }
+          <!-- Mobile Menu Toggle Button -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden p-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 hover:text-slate-950 hover:bg-slate-200/70 transition-colors"
+            aria-label="Abrir menú"
+          >
+            <i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
 
-    /* Smooth Reveal on Scroll */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
-</head>
+      <!-- Mobile Navigation Drawer -->
+      <div
+        id="mobile-menu"
+        class="max-w-7xl mx-auto mt-2 p-4 rounded-2xl glass-panel hidden md:hidden flex-col gap-3 shadow-xl border border-slate-200 animate-in fade-in slide-in-from-top-3 duration-200 bg-white/95"
+      >
+        <a
+          href="#servicios"
+          class="mobile-link px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-xl transition"
+          >Servicios</a
+        >
+        <a
+          href="#soluciones"
+          class="mobile-link px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-xl transition"
+          >Arquitectura & Soluciones</a
+        >
+        <a
+          href="#proceso"
+          class="mobile-link px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-xl transition"
+          >Workflow en 4 Pasos</a
+        >
+        <a
+          href="#metricas"
+          class="mobile-link px-3 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-xl transition"
+          >Métricas & Social Proof</a
+        >
+        <div class="pt-2 border-t border-slate-100">
+          <a
+            href="#contacto"
+            class="mobile-link flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-semibold text-sm text-white bg-blue-600 hover:bg-blue-700 transition shadow-md shadow-blue-600/20"
+          >
+            Iniciar Proyecto
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </header>
 
-<body class="bg-slate-950 text-slate-100 font-sans antialiased overflow-x-hidden relative selection:bg-blue-600 selection:text-white">
+    <!-- ========================================================================= -->
+    <!-- 2. HERO SECTION (MINIMALISMO ELEGANTE EN FONDO BLANCO)                    -->
+    <!-- ========================================================================= -->
+    <section
+      id="hero"
+      class="relative pt-32 sm:pt-40 pb-20 sm:pb-28 px-4 sm:px-6 lg:px-8 z-10"
+    >
+      <div class="max-w-6xl mx-auto text-center flex flex-col items-center">
+        <!-- Pill Badge -->
+        <div
+          class="reveal inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm backdrop-blur-md mb-8 hover:border-blue-300 transition-colors duration-300 cursor-default"
+        >
+          <span class="flex h-2 w-2 relative">
+            <span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"
+            ></span>
+            <span
+              class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"
+            ></span>
+          </span>
+          <span
+            class="text-xs font-mono font-medium text-slate-700 tracking-tight"
+          >
+            Agencia de Software & Transformación Digital
+            <span class="text-blue-600 font-semibold">✦ Q4 2026</span>
+          </span>
+        </div>
 
-  <!-- Background Ambience & Noise Grid -->
-  <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
-  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] bg-radial-vignette pointer-events-none z-0"></div>
-  <div class="fixed -top-36 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[128px] pointer-events-none z-0"></div>
-  <div class="fixed top-1/3 -right-32 w-[420px] h-[420px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none z-0"></div>
+        <!-- Main Headline (H1) -->
+        <h1
+          class="reveal text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-950 max-w-4xl leading-[1.08] sm:leading-[1.12]"
+        >
+          Ingeniería de software de alta fidelidad para
+          <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-sky-600 to-indigo-600"
+          >
+            escalar sin límites
+          </span>
+        </h1>
 
-  <!-- ========================================================================= -->
-  <!-- 1. NAVBAR FLOTANTE (GLASSMORPHIC)                                         -->
-  <!-- ========================================================================= -->
-  <header id="navbar-wrapper" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 px-4 sm:px-6 lg:px-8 pt-4">
-    <div id="navbar" class="max-w-7xl mx-auto rounded-2xl glass-panel transition-all duration-300 px-4 sm:px-6 py-3.5 flex items-center justify-between shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
-      
-      <!-- Brand Logo -->
-      <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 via-sky-500 to-cyan-400 p-[1px] shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-all duration-300">
-          <div class="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center">
-            <!-- Geometric Tech Isotype SVG -->
-            <svg class="w-5 h-5 text-sky-400 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="m12 3-8 4.5v9L12 21l8-4.5v-9L12 3Z"/>
-              <path d="m12 12 8-4.5"/>
-              <path d="M12 12v9"/>
-              <path d="m12 12-8-4.5"/>
-              <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
-            </svg>
+        <!-- Subtitle -->
+        <p
+          class="reveal mt-6 sm:mt-7 text-base sm:text-lg lg:text-xl text-slate-600 max-w-2xl leading-relaxed font-normal"
+        >
+          Diseñamos y desplegamos aplicaciones de misión crítica, arquitecturas
+          cloud distribuidas, ERPs a medida y estrategias de crecimiento digital
+          con obsesión por el rendimiento.
+        </p>
+
+        <!-- Dual Call to Action Buttons -->
+        <div
+          class="reveal mt-9 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+        >
+          <a
+            href="#contacto"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-blue-600 via-blue-500 to-sky-600 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/35 hover:-translate-y-0.5 transition-all duration-300"
+          >
+            <span>Agendar Diagnóstico Técnico</span>
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </a>
+          <a
+            href="#servicios"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-700 hover:text-slate-950 bg-white border border-slate-200 shadow-sm hover:border-slate-300 hover:bg-slate-50 transition-all duration-300 group"
+          >
+            <span>Explorar Capacidades</span>
+            <i
+              data-lucide="arrow-down"
+              class="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:translate-y-0.5 transition-all"
+            ></i>
+          </a>
+        </div>
+
+        <!-- Trust Badges Under Hero -->
+        <div
+          class="reveal mt-12 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-mono text-slate-500"
+        >
+          <div class="flex items-center gap-2">
+            <i data-lucide="shield-check" class="w-4 h-4 text-blue-600"></i>
+            <span>Zero-Trust Architecture</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="zap" class="w-4 h-4 text-sky-600"></i>
+            <span>SLA 99.99% Uptime</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="layers" class="w-4 h-4 text-indigo-600"></i>
+            <span>Modular Microservices</span>
           </div>
         </div>
-        <div class="flex flex-col">
-          <span class="font-bold tracking-tight text-white flex items-center gap-1.5 text-base sm:text-lg">
-            nusame<span class="text-sky-400 font-mono text-sm">.dev</span>
-          </span>
-          <span class="text-[9px] uppercase tracking-widest text-slate-400 font-mono -mt-1 hidden sm:block">
-            Engineering & Growth
-          </span>
-        </div>
-      </a>
 
-      <!-- Desktop Nav Links -->
-      <nav class="hidden md:flex items-center gap-1 lg:gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.06]">
-        <a href="#servicios" class="px-3.5 py-1.5 text-xs lg:text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/[0.04]">
-          Servicios
-        </a>
-        <a href="#soluciones" class="px-3.5 py-1.5 text-xs lg:text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/[0.04]">
-          Arquitectura
-        </a>
-        <a href="#proceso" class="px-3.5 py-1.5 text-xs lg:text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/[0.04]">
-          Workflow
-        </a>
-        <a href="#metricas" class="px-3.5 py-1.5 text-xs lg:text-sm font-medium text-slate-300 hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/[0.04]">
-          Métricas
-        </a>
-      </nav>
+        <!-- Hero Interactive Mockup / Telemetry Dashboard (Sleek Light Window) -->
+        <div class="reveal w-full max-w-5xl mt-14 sm:mt-16">
+          <div
+            class="relative rounded-2xl p-[1px] bg-gradient-to-b from-slate-200 via-slate-100 to-slate-200 shadow-[0_20px_60px_-15px_rgba(15,23,42,0.1)]"
+          >
+            <!-- Outer Glass Container -->
+            <div
+              class="rounded-[15px] bg-white border border-slate-200/90 overflow-hidden text-left"
+            >
+              <!-- Window Titlebar with MacOS Style Buttons & Active Tabs -->
+              <div
+                class="px-4 py-3 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3"
+              >
+                <div class="flex items-center gap-2">
+                  <span
+                    class="w-3 h-3 rounded-full bg-rose-400 inline-block"
+                  ></span>
+                  <span
+                    class="w-3 h-3 rounded-full bg-amber-400 inline-block"
+                  ></span>
+                  <span
+                    class="w-3 h-3 rounded-full bg-emerald-400 inline-block"
+                  ></span>
+                  <span
+                    class="ml-2 text-xs font-mono text-slate-600 font-medium hidden sm:inline-block"
+                  >
+                    nusame-core-cluster // telemetry.v2.prod
+                  </span>
+                </div>
 
-      <!-- CTA & Mobile Toggle -->
-      <div class="flex items-center gap-3">
-        <a href="#contacto" class="relative group hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-blue-600 via-blue-500 to-sky-500 shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/40 hover:-translate-y-0.5 transition-all duration-300">
-          <span class="relative z-10 flex items-center gap-1.5">
-            Iniciar Proyecto
-            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
-          </span>
-          <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-[2px]"></div>
-        </a>
+                <!-- Interactive Tabs -->
+                <div
+                  class="flex items-center gap-1.5 bg-slate-200/70 p-1 rounded-lg border border-slate-200 text-xs font-mono"
+                >
+                  <button
+                    onclick="switchHeroTab('telemetry')"
+                    id="tab-btn-telemetry"
+                    class="px-2.5 py-1 rounded-md text-blue-700 bg-white shadow-sm border border-slate-200 font-semibold transition"
+                  >
+                    Telemetría
+                  </button>
+                  <button
+                    onclick="switchHeroTab('architecture')"
+                    id="tab-btn-architecture"
+                    class="px-2.5 py-1 rounded-md text-slate-600 hover:text-slate-900 transition"
+                  >
+                    Arquitectura
+                  </button>
+                  <button
+                    onclick="switchHeroTab('pipeline')"
+                    id="tab-btn-pipeline"
+                    class="px-2.5 py-1 rounded-md text-slate-600 hover:text-slate-900 transition"
+                  >
+                    Pipeline CI/CD
+                  </button>
+                </div>
 
-        <!-- Mobile Menu Toggle Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl bg-white/[0.05] border border-white/[0.1] text-slate-300 hover:text-white hover:bg-white/[0.08] transition-colors" aria-label="Abrir menú">
-          <i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-    </div>
-
-    <!-- Mobile Navigation Drawer -->
-    <div id="mobile-menu" class="max-w-7xl mx-auto mt-2 p-4 rounded-2xl glass-panel hidden md:hidden flex-col gap-3 shadow-2xl border border-white/10 animate-in fade-in slide-in-from-top-3 duration-200">
-      <a href="#servicios" class="mobile-link px-3 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] rounded-xl transition">Servicios</a>
-      <a href="#soluciones" class="mobile-link px-3 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] rounded-xl transition">Arquitectura & Soluciones</a>
-      <a href="#proceso" class="mobile-link px-3 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] rounded-xl transition">Workflow en 4 Pasos</a>
-      <a href="#metricas" class="mobile-link px-3 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/[0.06] rounded-xl transition">Métricas & Social Proof</a>
-      <div class="pt-2 border-t border-white/[0.08]">
-        <a href="#contacto" class="mobile-link flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-semibold text-sm text-white bg-blue-600 hover:bg-blue-500 transition shadow-lg shadow-blue-600/30">
-          Iniciar Proyecto
-          <i data-lucide="sparkles" class="w-4 h-4"></i>
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ========================================================================= -->
-  <!-- 2. HERO SECTION (IMPACTO INMEDIATO & MINIMALISMO OSCURO)                  -->
-  <!-- ========================================================================= -->
-  <section id="hero" class="relative pt-32 sm:pt-40 pb-20 sm:pb-28 px-4 sm:px-6 lg:px-8 z-10">
-    <div class="max-w-6xl mx-auto text-center flex flex-col items-center">
-      
-      <!-- Pill Badge -->
-      <div class="reveal inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] shadow-inner backdrop-blur-md mb-8 hover:border-sky-500/40 transition-colors duration-300 cursor-default">
-        <span class="flex h-2 w-2 relative">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-        </span>
-        <span class="text-xs font-mono font-medium text-slate-300 tracking-tight">
-          Agencia de Software & Transformación Digital <span class="text-sky-400 font-semibold">✦ Q4 2026</span>
-        </span>
-      </div>
-
-      <!-- Main Headline (H1) -->
-      <h1 class="reveal text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-4xl leading-[1.08] sm:leading-[1.12]">
-        Ingeniería de software de alta fidelidad para 
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-400 drop-shadow-[0_4px_16px_rgba(56,189,248,0.25)]">
-          escalar sin límites
-        </span>
-      </h1>
-
-      <!-- Subtitle -->
-      <p class="reveal mt-6 sm:mt-7 text-base sm:text-lg lg:text-xl text-slate-400 max-w-2xl leading-relaxed font-normal">
-        Diseñamos y desplegamos aplicaciones de misión crítica, arquitecturas cloud distribuidas, ERPs a medida y estrategias de crecimiento digital con obsesión por el rendimiento.
-      </p>
-
-      <!-- Dual Call to Action Buttons -->
-      <div class="reveal mt-9 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-        <a href="#contacto" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 shadow-[0_0_30px_-5px_rgba(37,99,235,0.6)] hover:shadow-[0_0_40px_0px_rgba(56,189,248,0.7)] hover:-translate-y-0.5 transition-all duration-300">
-          <span>Agendar Diagnóstico Técnico</span>
-          <i data-lucide="chevron-right" class="w-4 h-4"></i>
-        </a>
-        <a href="#servicios" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-300 hover:text-white glass-panel hover:bg-white/[0.08] hover:border-white/20 transition-all duration-300 group">
-          <span>Explorar Capacidades</span>
-          <i data-lucide="arrow-down" class="w-4 h-4 text-slate-400 group-hover:text-sky-400 group-hover:translate-y-0.5 transition-all"></i>
-        </a>
-      </div>
-
-      <!-- Trust Badges Under Hero -->
-      <div class="reveal mt-12 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-mono text-slate-400">
-        <div class="flex items-center gap-2">
-          <i data-lucide="shield-check" class="w-4 h-4 text-sky-400"></i>
-          <span>Zero-Trust Architecture</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <i data-lucide="zap" class="w-4 h-4 text-cyan-400"></i>
-          <span>SLA 99.99% Uptime</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <i data-lucide="layers" class="w-4 h-4 text-indigo-400"></i>
-          <span>Modular Microservices</span>
-        </div>
-      </div>
-
-      <!-- Hero Interactive Mockup / Telemetry Dashboard -->
-      <div class="reveal w-full max-w-5xl mt-14 sm:mt-16">
-        <div class="relative rounded-2xl p-[1px] bg-gradient-to-b from-white/[0.15] via-white/[0.05] to-transparent shadow-[0_20px_70px_-15px_rgba(0,0,0,0.8)]">
-          
-          <!-- Outer Glass Container -->
-          <div class="rounded-[15px] bg-slate-900/90 backdrop-blur-2xl border border-white/[0.06] overflow-hidden">
-            
-            <!-- Window Titlebar with MacOS Style Buttons & Active Tabs -->
-            <div class="px-4 py-3 bg-slate-950/70 border-b border-white/[0.06] flex flex-wrap items-center justify-between gap-3">
-              <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 text-xs font-mono text-slate-400 font-medium hidden sm:inline-block">
-                  nusame-core-cluster // telemetry.v2.prod
-                </span>
+                <!-- Live Beacon Status -->
+                <div
+                  class="flex items-center gap-2 text-xs font-mono text-emerald-600 font-medium"
+                >
+                  <span
+                    class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"
+                  ></span>
+                  <span class="hidden md:inline">Cluster Health: OK</span>
+                </div>
               </div>
 
-              <!-- Interactive Tabs -->
-              <div class="flex items-center gap-1.5 bg-slate-950/80 p-1 rounded-lg border border-white/[0.05] text-xs font-mono">
-                <button onclick="switchHeroTab('telemetry')" id="tab-btn-telemetry" class="px-2.5 py-1 rounded-md text-white bg-blue-600/30 border border-blue-500/40 transition">
-                  Telemetría
-                </button>
-                <button onclick="switchHeroTab('architecture')" id="tab-btn-architecture" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition">
-                  Arquitectura
-                </button>
-                <button onclick="switchHeroTab('pipeline')" id="tab-btn-pipeline" class="px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition">
-                  Pipeline CI/CD
-                </button>
-              </div>
-
-              <!-- Live Beacon Status -->
-              <div class="flex items-center gap-2 text-xs font-mono text-emerald-400">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span class="hidden md:inline">Cluster Health: OK</span>
-              </div>
-            </div>
-
-            <!-- Tab 1: Live Telemetry Content -->
-            <div id="tab-content-telemetry" class="p-4 sm:p-6 text-left">
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                <!-- Stat Card 1 -->
-                <div class="p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                  <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
-                    <span>EDGE LATENCY</span>
-                    <i data-lucide="gauge" class="w-3.5 h-3.5 text-sky-400"></i>
+              <!-- Tab 1: Live Telemetry Content -->
+              <div id="tab-content-telemetry" class="p-4 sm:p-6">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                  <!-- Stat Card 1 -->
+                  <div
+                    class="p-4 rounded-xl bg-slate-50 border border-slate-200"
+                  >
+                    <div
+                      class="flex items-center justify-between text-xs font-mono text-slate-500 mb-2"
+                    >
+                      <span>EDGE LATENCY</span>
+                      <i
+                        data-lucide="gauge"
+                        class="w-3.5 h-3.5 text-blue-600"
+                      ></i>
+                    </div>
+                    <div
+                      class="text-2xl sm:text-3xl font-bold font-mono text-slate-900 flex items-baseline gap-1.5"
+                    >
+                      12.4<span class="text-sm font-normal text-blue-600"
+                        >ms</span
+                      >
+                    </div>
+                    <div
+                      class="text-[11px] text-emerald-600 font-medium mt-1 flex items-center gap-1"
+                    >
+                      <span>↓ 4.2ms vs. standard CDN</span>
+                    </div>
                   </div>
-                  <div class="text-2xl sm:text-3xl font-bold font-mono text-white flex items-baseline gap-1.5">
-                    12.4<span class="text-sm font-normal text-sky-400">ms</span>
+
+                  <!-- Stat Card 2 -->
+                  <div
+                    class="p-4 rounded-xl bg-slate-50 border border-slate-200"
+                  >
+                    <div
+                      class="flex items-center justify-between text-xs font-mono text-slate-500 mb-2"
+                    >
+                      <span>GLOBAL THROUGHPUT</span>
+                      <i
+                        data-lucide="activity"
+                        class="w-3.5 h-3.5 text-sky-600"
+                      ></i>
+                    </div>
+                    <div
+                      class="text-2xl sm:text-3xl font-bold font-mono text-slate-900 flex items-baseline gap-1.5"
+                    >
+                      42,850<span class="text-sm font-normal text-sky-600"
+                        >req/s</span
+                      >
+                    </div>
+                    <div class="text-[11px] text-slate-500 mt-1">
+                      Auto-scaling: 18 Pods activos
+                    </div>
                   </div>
-                  <div class="text-[11px] text-emerald-400 mt-1 flex items-center gap-1">
-                    <span>↓ 4.2ms vs. standard CDN</span>
+
+                  <!-- Stat Card 3 -->
+                  <div
+                    class="p-4 rounded-xl bg-slate-50 border border-slate-200"
+                  >
+                    <div
+                      class="flex items-center justify-between text-xs font-mono text-slate-500 mb-2"
+                    >
+                      <span>SECURITY SHIELD</span>
+                      <i
+                        data-lucide="lock"
+                        class="w-3.5 h-3.5 text-indigo-600"
+                      ></i>
+                    </div>
+                    <div
+                      class="text-2xl sm:text-3xl font-bold font-mono text-slate-900 flex items-baseline gap-1.5"
+                    >
+                      100<span class="text-sm font-normal text-indigo-600"
+                        >%</span
+                      >
+                    </div>
+                    <div class="text-[11px] text-emerald-600 font-medium mt-1">
+                      mTLS & DDoS Mitigation
+                    </div>
                   </div>
                 </div>
 
-                <!-- Stat Card 2 -->
-                <div class="p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                  <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
-                    <span>GLOBAL THROUGHPUT</span>
-                    <i data-lucide="activity" class="w-3.5 h-3.5 text-cyan-400"></i>
+                <!-- Terminal Stream Simulation (High Contrast Dark Terminal inside light frame) -->
+                <div
+                  class="p-4 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-slate-300 space-y-2 overflow-x-auto shadow-inner"
+                >
+                  <div class="flex items-center gap-2">
+                    <span class="text-blue-400">[09:12:04]</span>
+                    <span class="text-emerald-400 font-semibold">INFO</span>
+                    <span class="text-slate-300"
+                      >Cluster edge routing synchronized across 32
+                      Point-of-Presence locations.</span
+                    >
                   </div>
-                  <div class="text-2xl sm:text-3xl font-bold font-mono text-white flex items-baseline gap-1.5">
-                    42,850<span class="text-sm font-normal text-cyan-400">req/s</span>
+                  <div class="flex items-center gap-2">
+                    <span class="text-blue-400">[09:12:05]</span>
+                    <span class="text-sky-400 font-semibold">GATEWAY</span>
+                    <span class="text-slate-300"
+                      >HTTP/3 QUIC connection negotiated · TLS 1.3 · 0 RTT
+                      handshake achieved.</span
+                    >
                   </div>
-                  <div class="text-[11px] text-slate-400 mt-1">
-                    Auto-scaling: 18 Pods activos
-                  </div>
-                </div>
-
-                <!-- Stat Card 3 -->
-                <div class="p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                  <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
-                    <span>SECURITY SHIELD</span>
-                    <i data-lucide="lock" class="w-3.5 h-3.5 text-indigo-400"></i>
-                  </div>
-                  <div class="text-2xl sm:text-3xl font-bold font-mono text-white flex items-baseline gap-1.5">
-                    100<span class="text-sm font-normal text-indigo-400">%</span>
-                  </div>
-                  <div class="text-[11px] text-emerald-400 mt-1">
-                    mTLS & DDoS Mitigation
+                  <div class="flex items-center gap-2">
+                    <span class="text-blue-400">[09:12:06]</span>
+                    <span class="text-indigo-400 font-semibold">DATABASE</span>
+                    <span class="text-slate-300"
+                      >Read-replica query executed in 1.8ms with zero cache
+                      miss.</span
+                    >
                   </div>
                 </div>
               </div>
 
-              <!-- Terminal Stream Simulation -->
-              <div class="p-4 rounded-xl bg-slate-950/80 border border-white/[0.05] font-mono text-xs text-slate-300 space-y-1.5 overflow-x-auto">
-                <div class="flex items-center gap-2 text-slate-400">
-                  <span class="text-blue-400">[09:12:04]</span>
-                  <span class="text-emerald-400">INFO</span>
-                  <span>Cluster edge routing synchronized across 32 Point-of-Presence locations.</span>
-                </div>
-                <div class="flex items-center gap-2 text-slate-400">
-                  <span class="text-blue-400">[09:12:05]</span>
-                  <span class="text-sky-400">GATEWAY</span>
-                  <span>HTTP/3 QUIC connection negotiated · TLS 1.3 · 0 RTT handshake achieved.</span>
-                </div>
-                <div class="flex items-center gap-2 text-slate-400">
-                  <span class="text-blue-400">[09:12:06]</span>
-                  <span class="text-indigo-400">DATABASE</span>
-                  <span>Read-replica query executed in 1.8ms with zero cache miss.</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Tab 2: Architecture View (Hidden by default) -->
-            <div id="tab-content-architecture" class="p-4 sm:p-6 text-left hidden">
-              <div class="p-4 rounded-xl bg-slate-950/80 border border-white/[0.05] font-mono text-xs">
-                <p class="text-slate-400 mb-3">// Definición de Topología Distribuida - Nusame Enterprise Blueprint</p>
-                <pre class="text-sky-300 overflow-x-auto"><code>{
+              <!-- Tab 2: Architecture View (Hidden by default) -->
+              <div id="tab-content-architecture" class="p-4 sm:p-6 hidden">
+                <div
+                  class="p-4 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs shadow-inner"
+                >
+                  <p class="text-slate-400 mb-3">
+                    // Definición de Topología Distribuida - Nusame Enterprise
+                    Blueprint
+                  </p>
+                  <pre class="text-sky-300 overflow-x-auto"><code>{
   "cluster": "nusame-latam-mesh-01",
   "architecture": "Event-Driven CQRS & Microfrontends",
   "protocols": ["gRPC", "GraphQL Subscriptions", "WebSockets"],
@@ -424,768 +504,1035 @@
     "uptime_guarantee": "99.995%"
   }
 }</code></pre>
-              </div>
-            </div>
-
-            <!-- Tab 3: CI/CD Pipeline (Hidden by default) -->
-            <div id="tab-content-pipeline" class="p-4 sm:p-6 text-left hidden">
-              <div class="space-y-3 font-mono text-xs">
-                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                  <div class="flex items-center gap-3">
-                    <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">✓</span>
-                    <span class="text-white font-medium">Static Analysis & Zero-Vulnerability Audit</span>
-                  </div>
-                  <span class="text-slate-400">14s · PASS</span>
-                </div>
-                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                  <div class="flex items-center gap-3">
-                    <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">✓</span>
-                    <span class="text-white font-medium">Automated End-to-End Test Suite (Playwright)</span>
-                  </div>
-                  <span class="text-slate-400">42s · 210/210 Passed</span>
-                </div>
-                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                  <div class="flex items-center gap-3">
-                    <span class="w-5 h-5 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center animate-spin">⟳</span>
-                    <span class="text-white font-medium">Blue/Green Immutable Edge Deployment</span>
-                  </div>
-                  <span class="text-sky-400">Desplegando en producción...</span>
                 </div>
               </div>
-            </div>
 
+              <!-- Tab 3: CI/CD Pipeline (Hidden by default) -->
+              <div id="tab-content-pipeline" class="p-4 sm:p-6 hidden">
+                <div class="space-y-3 font-mono text-xs">
+                  <div
+                    class="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200"
+                  >
+                    <div class="flex items-center gap-3">
+                      <span
+                        class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center"
+                        >✓</span
+                      >
+                      <span class="text-slate-900 font-medium"
+                        >Static Analysis & Zero-Vulnerability Audit</span
+                      >
+                    </div>
+                    <span class="text-slate-500">14s · PASS</span>
+                  </div>
+                  <div
+                    class="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200"
+                  >
+                    <div class="flex items-center gap-3">
+                      <span
+                        class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center"
+                        >✓</span
+                      >
+                      <span class="text-slate-900 font-medium"
+                        >Automated End-to-End Test Suite (Playwright)</span
+                      >
+                    </div>
+                    <span class="text-slate-500">42s · 210/210 Passed</span>
+                  </div>
+                  <div
+                    class="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200"
+                  >
+                    <div class="flex items-center gap-3">
+                      <span
+                        class="w-5 h-5 rounded-full bg-blue-100 text-blue-600 font-bold flex items-center justify-center animate-spin"
+                        >⟳</span
+                      >
+                      <span class="text-slate-900 font-medium"
+                        >Blue/Green Immutable Edge Deployment</span
+                      >
+                    </div>
+                    <span class="text-blue-600 font-semibold"
+                      >Desplegando en producción...</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- 3. BENTO GRID DE SERVICIOS (EL NÚCLEO DE VALOR)                           -->
-  <!-- ========================================================================= -->
-  <section id="servicios" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="max-w-7xl mx-auto">
-      
-      <!-- Section Header -->
-      <div class="reveal max-w-3xl mb-16 text-left">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono uppercase tracking-wider mb-4">
-          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
-          Capacidades Principales
+    <!-- ========================================================================= -->
+    <!-- 3. BENTO GRID DE SERVICIOS (EL NÚCLEO DE VALOR)                           -->
+    <!-- ========================================================================= -->
+    <section
+      id="servicios"
+      class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative z-10"
+    >
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="reveal max-w-3xl mb-16 text-left">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-50 border border-blue-200 text-blue-700 text-xs font-mono uppercase tracking-wider mb-4 font-semibold"
+          >
+            <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+            Capacidades Principales
+          </div>
+          <h2
+            class="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight"
+          >
+            Ingeniería integral diseñada para superar los estándares de la
+            industria
+          </h2>
+          <p class="mt-4 text-slate-600 text-base sm:text-lg">
+            No somos una agencia convencional. Operamos como tu escuadrón de
+            ingeniería y producto de élite, fusionando destreza técnica con
+            visión de negocio.
+          </p>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-          Ingeniería integral diseñada para superar los estándares de la industria
-        </h2>
-        <p class="mt-4 text-slate-400 text-base sm:text-lg">
-          No somos una agencia convencional. Operamos como tu escuadrón de ingeniería y producto de élite, fusionando destreza técnica con visión de negocio.
-        </p>
-      </div>
 
-      <!-- Bento Grid (12 Columns Layout) -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-
-        <!-- Card 1: Mobile & Web Applications (7 Cols) -->
-        <div class="reveal md:col-span-12 lg:col-span-7 glass-panel spotlight-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden group">
-          <div class="relative z-10">
-            <!-- Icon & Category -->
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600/30 to-cyan-500/30 border border-blue-400/30 flex items-center justify-center text-sky-400 shadow-inner">
-                <i data-lucide="smartphone" class="w-6 h-6"></i>
-              </div>
-              <span class="text-xs font-mono text-slate-400 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.06]">
-                Native & Reactive
-              </span>
-            </div>
-
-            <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Desarrollo de Aplicaciones Móviles & Web
-            </h3>
-            <p class="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed">
-              Construimos interfaces hiper-reactivas a 60 FPS con diseño de interacción milimétrico. Diseñadas para alta retención de usuarios, arquitectura offline-first y sincronización en milisegundos.
-            </p>
-
-            <!-- Embedded Interactive Component Preview -->
-            <div class="mt-6 p-4 rounded-2xl bg-slate-950/70 border border-white/[0.06] backdrop-blur-md">
-              <div class="flex items-center justify-between border-b border-white/[0.06] pb-3 mb-3 text-xs font-mono">
-                <span class="text-slate-400 flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-                  Native Motion Engine (GPU Accelerated)
+        <!-- Bento Grid (12 Columns Layout) -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <!-- Card 1: Mobile & Web Applications (7 Cols) -->
+          <div
+            class="reveal md:col-span-12 lg:col-span-7 bg-white border border-slate-200/90 shadow-[0_4px_24px_-4px_rgba(15,23,42,0.06)] spotlight-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden group hover:shadow-xl hover:border-blue-300 transition-all duration-300"
+          >
+            <div class="relative z-10">
+              <!-- Icon & Category -->
+              <div class="flex items-center justify-between mb-6">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 shadow-sm"
+                >
+                  <i data-lucide="smartphone" class="w-6 h-6"></i>
+                </div>
+                <span
+                  class="text-xs font-mono text-slate-600 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 font-medium"
+                >
+                  Native & Reactive
                 </span>
-                <span class="text-sky-400 font-semibold">60.0 FPS</span>
               </div>
-              <div class="space-y-2">
-                <div class="flex justify-between text-xs text-slate-300">
-                  <span>Tiempo de Primer Render (FCP)</span>
-                  <span class="font-mono text-emerald-400 font-bold">0.42s</span>
-                </div>
-                <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-500 to-cyan-400 w-11/12 rounded-full"></div>
-                </div>
-                <div class="flex justify-between text-xs text-slate-300 pt-1">
-                  <span>Retención Day-30 Benchmark</span>
-                  <span class="font-mono text-sky-400 font-bold">+68%</span>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <!-- Tech Stack Tags -->
-          <div class="mt-6 pt-5 border-t border-white/[0.06] flex flex-wrap gap-2 relative z-10">
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">React Native</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">Flutter</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">Next.js 15</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">Swift & Kotlin</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">Tailwind CSS</span>
-          </div>
-        </div>
+              <h3
+                class="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight"
+              >
+                Desarrollo de Aplicaciones Móviles & Web
+              </h3>
+              <p
+                class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed"
+              >
+                Construimos interfaces hiper-reactivas a 60 FPS con diseño de
+                interacción milimétrico. Diseñadas para alta retención de
+                usuarios, arquitectura offline-first y sincronización en
+                milisegundos.
+              </p>
 
-        <!-- Card 2: Software a Medida & Arquitectura Cloud (5 Cols) -->
-        <div class="reveal md:col-span-12 lg:col-span-5 glass-panel spotlight-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden group">
-          <div class="relative z-10">
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-600/30 to-blue-500/30 border border-indigo-400/30 flex items-center justify-center text-indigo-400 shadow-inner">
-                <i data-lucide="cloud-lightning" class="w-6 h-6"></i>
-              </div>
-              <span class="text-xs font-mono text-slate-400 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.06]">
-                Cloud Native
-              </span>
-            </div>
-
-            <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Software a Medida & Cloud
-            </h3>
-            <p class="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed">
-              Infraestructuras preparadas para soportar cargas extremas. Microservicios independientes, arquitecturas orientadas a eventos y seguridad Zero-Trust en cada capa.
-            </p>
-
-            <!-- Micro Cloud Topology Visual -->
-            <div class="mt-6 p-4 rounded-2xl bg-slate-950/70 border border-white/[0.06]">
-              <div class="text-xs font-mono text-slate-400 space-y-2">
-                <div class="flex items-center justify-between">
-                  <span class="text-slate-300">AWS / GCP Multi-Región</span>
-                  <span class="text-emerald-400">Active-Active</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-slate-300">gRPC & GraphQL Gateway</span>
-                  <span class="text-sky-400">&lt; 3ms serialization</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-slate-300">Kubernetes Auto-Heal</span>
-                  <span class="text-indigo-400">Zero Downtime</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-6 pt-5 border-t border-white/[0.06] flex flex-wrap gap-2 relative z-10">
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">Rust</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">Go</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">Kubernetes</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">AWS ECS</span>
-          </div>
-        </div>
-
-        <!-- Card 3: Sistemas de Gestión & ERP (5 Cols) -->
-        <div class="reveal md:col-span-12 lg:col-span-5 glass-panel spotlight-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden group">
-          <div class="relative z-10">
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-600/30 to-emerald-500/30 border border-cyan-400/30 flex items-center justify-center text-cyan-400 shadow-inner">
-                <i data-lucide="layout-dashboard" class="w-6 h-6"></i>
-              </div>
-              <span class="text-xs font-mono text-slate-400 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.06]">
-                Enterprise ERP
-              </span>
-            </div>
-
-            <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Sistemas de Gestión & ERP
-            </h3>
-            <p class="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed">
-              Transformamos la complejidad operativa en software intuitivo. Plataformas ERP modulares con control de inventario, facturación automatizada y telemetría de negocio unificada.
-            </p>
-
-            <!-- Mini Live Pipeline Table -->
-            <div class="mt-6 p-3 rounded-2xl bg-slate-950/70 border border-white/[0.06] text-xs font-mono">
-              <div class="flex justify-between items-center py-1.5 border-b border-white/[0.05]">
-                <span class="text-slate-300">Orquestador de Flujos</span>
-                <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400">100% Sync</span>
-              </div>
-              <div class="flex justify-between items-center py-1.5 border-b border-white/[0.05]">
-                <span class="text-slate-300">Auditoría Financiera</span>
-                <span class="px-2 py-0.5 rounded bg-sky-500/10 text-sky-400">Tiempo Real</span>
-              </div>
-              <div class="flex justify-between items-center py-1.5">
-                <span class="text-slate-300">Particionamiento Multi-tenant</span>
-                <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400">Aislado</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-6 pt-5 border-t border-white/[0.06] flex flex-wrap gap-2 relative z-10">
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">PostgreSQL</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">Temporal.io</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">Redis Cache</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">Kafka</span>
-          </div>
-        </div>
-
-        <!-- Card 4: Growth & Marketing Digital de Precisión (7 Cols) -->
-        <div class="reveal md:col-span-12 lg:col-span-7 glass-panel spotlight-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden group">
-          <div class="relative z-10">
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-600/30 to-indigo-500/30 border border-sky-400/30 flex items-center justify-center text-sky-400 shadow-inner">
-                <i data-lucide="trending-up" class="w-6 h-6"></i>
-              </div>
-              <span class="text-xs font-mono text-slate-400 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.06]">
-                Growth Engineering
-              </span>
-            </div>
-
-            <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Growth & Marketing Estratégico
-            </h3>
-            <p class="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed">
-              No hacemos marketing empírico. Diseñamos motores sistemáticos de adquisición mediante analítica predictiva, embudos automatizados, atribución multicanal y experimentación continua (CRO).
-            </p>
-
-            <!-- Growth Metrics Visual Box -->
-            <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="p-3.5 rounded-xl bg-slate-950/70 border border-white/[0.06] text-center">
-                <div class="text-[11px] font-mono text-slate-400">CAC OPTIMIZATION</div>
-                <div class="text-xl font-bold font-mono text-emerald-400 mt-1">-38.5%</div>
-                <div class="text-[10px] text-slate-400">Costo de Adquisición</div>
-              </div>
-              <div class="p-3.5 rounded-xl bg-slate-950/70 border border-white/[0.06] text-center">
-                <div class="text-[11px] font-mono text-slate-400">CONVERSION LIFT</div>
-                <div class="text-xl font-bold font-mono text-sky-400 mt-1">+240%</div>
-                <div class="text-[10px] text-slate-400">Tasa en Embudos</div>
-              </div>
-              <div class="p-3.5 rounded-xl bg-slate-950/70 border border-white/[0.06] text-center">
-                <div class="text-[11px] font-mono text-slate-400">LTV / PAYBACK</div>
-                <div class="text-xl font-bold font-mono text-indigo-400 mt-1">4.2x</div>
-                <div class="text-[10px] text-slate-400">Retorno de Capital</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-6 pt-5 border-t border-white/[0.06] flex flex-wrap gap-2 relative z-10">
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">Data Pipelines</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">Segment CDP</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">A/B Testing Framework</span>
-            <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/[0.03] text-slate-300 border border-white/[0.06]">Semantic SEO</span>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- 4. WORKFLOW / PROCESO EN 4 PASOS                                         -->
-  <!-- ========================================================================= -->
-  <section id="proceso" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative z-10 border-t border-white/[0.05]">
-    <div class="max-w-7xl mx-auto">
-      
-      <div class="reveal text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono uppercase tracking-wider mb-4">
-          <i data-lucide="git-branch" class="w-3.5 h-3.5"></i>
-          Metodología de Entrega
-        </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-          De la visión al despliegue global en 4 fases rigurosas
-        </h2>
-        <p class="mt-4 text-slate-400 text-base sm:text-lg">
-          Un protocolo probado para eliminar la incertidumbre, acelerar el time-to-market y asegurar código de clase mundial.
-        </p>
-      </div>
-
-      <!-- Step Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-        <!-- Step 1 -->
-        <div class="reveal glass-panel spotlight-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative group hover:border-blue-500/30 transition-all duration-300">
-          <div>
-            <div class="flex items-center justify-between mb-6">
-              <span class="text-3xl font-mono font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-sky-300">
-                01
-              </span>
-              <div class="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-sky-400">
-                <i data-lucide="compass" class="w-5 h-5"></i>
-              </div>
-            </div>
-            <h3 class="text-xl font-bold text-white tracking-tight">
-              Descubrimiento & Estrategia
-            </h3>
-            <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-              Mapeamos requisitos críticos, analizamos cuellos de botella de negocio y modelamos el dominio de datos antes de escribir una sola línea de código.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-white/[0.06] text-xs font-mono text-slate-400 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-            Arquitectura Preliminar & KPIs
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="reveal glass-panel spotlight-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative group hover:border-sky-500/30 transition-all duration-300">
-          <div>
-            <div class="flex items-center justify-between mb-6">
-              <span class="text-3xl font-mono font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-cyan-300">
-                02
-              </span>
-              <div class="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-cyan-400">
-                <i data-lucide="pen-tool" class="w-5 h-5"></i>
-              </div>
-            </div>
-            <h3 class="text-xl font-bold text-white tracking-tight">
-              Arquitectura & UI/UX
-            </h3>
-            <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-              Sistemas de diseño atómicos en Figma, especificaciones OpenAPI de contratos y esquemas de base de datos optimizados para queries complejas.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-white/[0.06] text-xs font-mono text-slate-400 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-            Prototipos Interactivos & Benchmarks
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="reveal glass-panel spotlight-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative group hover:border-indigo-500/30 transition-all duration-300">
-          <div>
-            <div class="flex items-center justify-between mb-6">
-              <span class="text-3xl font-mono font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-indigo-400">
-                03
-              </span>
-              <div class="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-indigo-400">
-                <i data-lucide="code-2" class="w-5 h-5"></i>
-              </div>
-            </div>
-            <h3 class="text-xl font-bold text-white tracking-tight">
-              Desarrollo Ágil & CI/CD
-            </h3>
-            <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-              Sprints iterativos de 2 semanas, revisiones peer-to-peer estrictas, pruebas de integración automatizadas y entregables palpables en staging continuo.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-white/[0.06] text-xs font-mono text-slate-400 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
-            Staging Diaria & 90%+ Test Coverage
-          </div>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="reveal glass-panel spotlight-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative group hover:border-emerald-500/30 transition-all duration-300">
-          <div>
-            <div class="flex items-center justify-between mb-6">
-              <span class="text-3xl font-mono font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-emerald-400">
-                04
-              </span>
-              <div class="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-emerald-400">
-                <i data-lucide="rocket" class="w-5 h-5"></i>
-              </div>
-            </div>
-            <h3 class="text-xl font-bold text-white tracking-tight">
-              Despliegue & Escala
-            </h3>
-            <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-              Lanzamiento con zero downtime, monitorización distribuida, telemetría de conversión y optimizaciones continuas para maximizar el ROI.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-white/[0.06] text-xs font-mono text-slate-400 flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-            Observabilidad 24/7 & Escala Global
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- 5. MÉTRICAS & SOCIAL PROOF                                                -->
-  <!-- ========================================================================= -->
-  <section id="metricas" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative z-10 bg-slate-900/40 border-y border-white/[0.05]">
-    <div class="max-w-7xl mx-auto">
-      
-      <!-- Metrics Tabular Grid -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-20 text-center">
-        
-        <div class="reveal flex flex-col items-center">
-          <div class="text-4xl sm:text-6xl font-black font-mono tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-sky-200 to-blue-400">
-            +99.99%
-          </div>
-          <div class="mt-2 text-sm font-semibold text-slate-200">Uptime SLA Garantizado</div>
-          <div class="text-xs font-mono text-slate-400 mt-0.5">En infraestructuras cloud críticas</div>
-        </div>
-
-        <div class="reveal flex flex-col items-center">
-          <div class="text-4xl sm:text-6xl font-black font-mono tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-cyan-200 to-sky-400">
-            &lt; 14ms
-          </div>
-          <div class="mt-2 text-sm font-semibold text-slate-200">Latencia Media Global</div>
-          <div class="text-xs font-mono text-slate-400 mt-0.5">Enrutamiento Edge inteligente</div>
-        </div>
-
-        <div class="reveal flex flex-col items-center">
-          <div class="text-4xl sm:text-6xl font-black font-mono tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-200 to-blue-400">
-            +45M
-          </div>
-          <div class="mt-2 text-sm font-semibold text-slate-200">Peticiones Mensuales</div>
-          <div class="text-xs font-mono text-slate-400 mt-0.5">Procesadas con cero fricción</div>
-        </div>
-
-        <div class="reveal flex flex-col items-center">
-          <div class="text-4xl sm:text-6xl font-black font-mono tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-emerald-200 to-cyan-400">
-            4.9 / 5
-          </div>
-          <div class="mt-2 text-sm font-semibold text-slate-200">Calificación de Clientes</div>
-          <div class="text-xs font-mono text-slate-400 mt-0.5">Retención de proyectos a largo plazo</div>
-        </div>
-
-      </div>
-
-      <!-- Tech Stack Ticker / Logos Cloud -->
-      <div class="reveal pt-12 border-t border-white/[0.06] text-center">
-        <p class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-8">
-          TECNOLOGÍAS & ESTÁNDARES EN LOS QUE CONFIAMOS
-        </p>
-        
-        <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-14 opacity-70 hover:opacity-100 transition-opacity duration-300">
-          <div class="flex items-center gap-2 text-slate-300 font-mono text-sm hover:text-white transition">
-            <i data-lucide="terminal" class="w-4 h-4 text-sky-400"></i> TypeScript
-          </div>
-          <div class="flex items-center gap-2 text-slate-300 font-mono text-sm hover:text-white transition">
-            <i data-lucide="layers" class="w-4 h-4 text-blue-400"></i> Next.js 15
-          </div>
-          <div class="flex items-center gap-2 text-slate-300 font-mono text-sm hover:text-white transition">
-            <i data-lucide="cpu" class="w-4 h-4 text-orange-400"></i> Rust Core
-          </div>
-          <div class="flex items-center gap-2 text-slate-300 font-mono text-sm hover:text-white transition">
-            <i data-lucide="server" class="w-4 h-4 text-cyan-400"></i> Kubernetes
-          </div>
-          <div class="flex items-center gap-2 text-slate-300 font-mono text-sm hover:text-white transition">
-            <i data-lucide="database" class="w-4 h-4 text-indigo-400"></i> PostgreSQL
-          </div>
-          <div class="flex items-center gap-2 text-slate-300 font-mono text-sm hover:text-white transition">
-            <i data-lucide="cloud" class="w-4 h-4 text-amber-400"></i> AWS Architecture
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- 6. CTA DE CONVERSIÓN FINAL                                               -->
-  <!-- ========================================================================= -->
-  <section id="contacto" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="max-w-5xl mx-auto">
-      
-      <div class="reveal relative rounded-3xl p-[1.5px] bg-gradient-to-r from-blue-600 via-cyan-400 to-indigo-600 shadow-[0_0_60px_-15px_rgba(37,99,235,0.4)]">
-        
-        <div class="rounded-[22px] bg-slate-950/95 backdrop-blur-3xl p-8 sm:p-14 text-center relative overflow-hidden">
-          
-          <!-- Background Glow Orbs inside card -->
-          <div class="absolute -top-24 -right-24 w-72 h-72 bg-cyan-500/20 rounded-full blur-[90px] pointer-events-none"></div>
-          <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-blue-600/20 rounded-full blur-[90px] pointer-events-none"></div>
-
-          <!-- Content -->
-          <div class="relative z-10 max-w-3xl mx-auto">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] text-sky-400 text-xs font-mono mb-6">
-              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-              Capacidad Disponible para Nuevos Proyectos
-            </div>
-
-            <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-              ¿Listo para construir el software que definirá tu industria?
-            </h2>
-
-            <p class="mt-4 text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-              Recibe un análisis técnico preliminar de tu arquitectura o una estimación detallada para tu próxima app o sistema empresarial.
-            </p>
-
-            <!-- Single Field Enterprise Lead Capture Form -->
-            <form id="lead-form" onsubmit="handleLeadSubmit(event)" class="mt-9 max-w-xl mx-auto">
-              <div class="flex flex-col sm:flex-row items-stretch gap-3 p-1.5 rounded-2xl bg-white/[0.04] border border-white/[0.1] focus-within:border-sky-400/60 focus-within:ring-2 focus-within:ring-sky-500/20 transition-all duration-300">
-                <input 
-                  type="email" 
-                  id="lead-email" 
-                  required 
-                  placeholder="Introduce tu correo corporativo..." 
-                  class="flex-1 px-4 py-3 bg-transparent text-white placeholder:text-slate-500 text-sm focus:outline-none font-sans"
+              <!-- Embedded Interactive Component Preview -->
+              <div
+                class="mt-6 p-4 rounded-2xl bg-slate-50 border border-slate-200"
+              >
+                <div
+                  class="flex items-center justify-between border-b border-slate-200 pb-3 mb-3 text-xs font-mono"
                 >
-                <button 
-                  type="submit" 
-                  id="lead-submit-btn"
-                  class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 shadow-md shadow-blue-500/30 hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-200"
-                >
-                  <span id="btn-text">Solicitar Diagnóstico</span>
-                  <i data-lucide="arrow-right" id="btn-icon" class="w-4 h-4"></i>
-                </button>
+                  <span
+                    class="text-slate-600 flex items-center gap-1.5 font-medium"
+                  >
+                    <span
+                      class="w-2 h-2 rounded-full bg-blue-600 animate-ping"
+                    ></span>
+                    Native Motion Engine (GPU Accelerated)
+                  </span>
+                  <span class="text-blue-600 font-bold">60.0 FPS</span>
+                </div>
+                <div class="space-y-2">
+                  <div class="flex justify-between text-xs text-slate-700">
+                    <span>Tiempo de Primer Render (FCP)</span>
+                    <span class="font-mono text-emerald-600 font-bold"
+                      >0.42s</span
+                    >
+                  </div>
+                  <div
+                    class="w-full h-2 bg-slate-200 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-gradient-to-r from-blue-600 to-sky-500 w-11/12 rounded-full"
+                    ></div>
+                  </div>
+                  <div class="flex justify-between text-xs text-slate-700 pt-1">
+                    <span>Retención Day-30 Benchmark</span>
+                    <span class="font-mono text-blue-600 font-bold">+68%</span>
+                  </div>
+                </div>
               </div>
-              
-              <!-- Real-time Feedback Message Box -->
-              <div id="form-feedback" class="mt-3 text-xs font-mono hidden transition-all duration-300"></div>
-            </form>
-
-            <!-- Guarantee Badges -->
-            <div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-mono">
-              <span class="flex items-center gap-1.5">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-sky-400"></i>
-                NDA Estándar Disponible
-              </span>
-              <span class="flex items-center gap-1.5">
-                <i data-lucide="clock" class="w-3.5 h-3.5 text-cyan-400"></i>
-                Respuesta en &lt; 4 Horas
-              </span>
-              <span class="flex items-center gap-1.5">
-                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i>
-                Sin Compromiso Comercial
-              </span>
             </div>
 
+            <!-- Tech Stack Tags -->
+            <div
+              class="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-2 relative z-10"
+            >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >React Native</span
+              >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >Flutter</span
+              >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >Next.js 15</span
+              >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >Swift & Kotlin</span
+              >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >Tailwind CSS</span
+              >
+            </div>
           </div>
 
-        </div>
+          <!-- Card 2: Software a Medida & Arquitectura Cloud (5 Cols) -->
+          <div
+            class="reveal md:col-span-12 lg:col-span-5 bg-white border border-slate-200/90 shadow-[0_4px_24px_-4px_rgba(15,23,42,0.06)] spotlight-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden group hover:shadow-xl hover:border-indigo-300 transition-all duration-300"
+          >
+            <div class="relative z-10">
+              <div class="flex items-center justify-between mb-6">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 shadow-sm"
+                >
+                  <i data-lucide="cloud-lightning" class="w-6 h-6"></i>
+                </div>
+                <span
+                  class="text-xs font-mono text-slate-600 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 font-medium"
+                >
+                  Cloud Native
+                </span>
+              </div>
 
-      </div>
+              <h3
+                class="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight"
+              >
+                Software a Medida & Cloud
+              </h3>
+              <p
+                class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed"
+              >
+                Infraestructuras preparadas para soportar cargas extremas.
+                Microservicios independientes, arquitecturas orientadas a
+                eventos y seguridad Zero-Trust en cada capa.
+              </p>
 
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- 7. FOOTER TÉCNICO                                                         -->
-  <!-- ========================================================================= -->
-  <footer class="border-t border-white/[0.08] bg-slate-950 pt-16 pb-12 px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="max-w-7xl mx-auto">
-      
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/[0.06]">
-        
-        <!-- Column 1: Brand & Status (5 cols) -->
-        <div class="md:col-span-5 space-y-4">
-          <a href="#hero" class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-cyan-400 p-[1px]">
-              <div class="w-full h-full bg-slate-950 rounded-[7px] flex items-center justify-center">
-                <svg class="w-4 h-4 text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                  <path d="m12 3-8 4.5v9L12 21l8-4.5v-9L12 3Z"/>
-                  <path d="M12 12v9"/>
-                </svg>
+              <!-- Micro Cloud Topology Visual -->
+              <div
+                class="mt-6 p-4 rounded-2xl bg-slate-50 border border-slate-200"
+              >
+                <div class="text-xs font-mono text-slate-600 space-y-2">
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-800 font-medium"
+                      >AWS / GCP Multi-Región</span
+                    >
+                    <span class="text-emerald-600 font-bold"
+                      >Active-Active</span
+                    >
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-800 font-medium"
+                      >gRPC & GraphQL Gateway</span
+                    >
+                    <span class="text-blue-600 font-bold"
+                      >&lt; 3ms serialization</span
+                    >
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-800 font-medium"
+                      >Kubernetes Auto-Heal</span
+                    >
+                    <span class="text-indigo-600 font-bold">Zero Downtime</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <span class="font-bold text-white tracking-tight text-lg">
-              nusame<span class="text-sky-400 font-mono text-sm">.dev</span>
-            </span>
-          </a>
-          
-          <p class="text-slate-400 text-sm max-w-sm leading-relaxed">
-            Agencia boutique de ingeniería de software, arquitecturas cloud distribuidas, aplicaciones de alta fidelidad y crecimiento estratégico de impacto.
+
+            <div
+              class="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-2 relative z-10"
+            >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >Rust</span
+              >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >Go</span
+              >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >Kubernetes</span
+              >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >AWS ECS</span
+              >
+            </div>
+          </div>
+
+          <!-- Card 3: Sistemas de Gestión & ERP (5 Cols) -->
+          <div
+            class="reveal md:col-span-12 lg:col-span-5 bg-white border border-slate-200/90 shadow-[0_4px_24px_-4px_rgba(15,23,42,0.06)] spotlight-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden group hover:shadow-xl hover:border-cyan-300 transition-all duration-300"
+          >
+            <div class="relative z-10">
+              <div class="flex items-center justify-between mb-6">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-cyan-50 border border-cyan-200 flex items-center justify-center text-cyan-600 shadow-sm"
+                >
+                  <i data-lucide="layout-dashboard" class="w-6 h-6"></i>
+                </div>
+                <span
+                  class="text-xs font-mono text-slate-600 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 font-medium"
+                >
+                  Enterprise ERP
+                </span>
+              </div>
+
+              <h3
+                class="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight"
+              >
+                Sistemas de Gestión & ERP
+              </h3>
+              <p
+                class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed"
+              >
+                Transformamos la complejidad operativa en software intuitivo.
+                Plataformas ERP modulares con control de inventario, facturación
+                automatizada y telemetría de negocio unificada.
+              </p>
+
+              <!-- Mini Live Pipeline Table -->
+              <div
+                class="mt-6 p-3 rounded-2xl bg-slate-50 border border-slate-200 text-xs font-mono"
+              >
+                <div
+                  class="flex justify-between items-center py-1.5 border-b border-slate-200"
+                >
+                  <span class="text-slate-800">Orquestador de Flujos</span>
+                  <span
+                    class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 font-bold"
+                    >100% Sync</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center py-1.5 border-b border-slate-200"
+                >
+                  <span class="text-slate-800">Auditoría Financiera</span>
+                  <span
+                    class="px-2 py-0.5 rounded bg-sky-100 text-sky-700 font-bold"
+                    >Tiempo Real</span
+                  >
+                </div>
+                <div class="flex justify-between items-center py-1.5">
+                  <span class="text-slate-800"
+                    >Particionamiento Multi-tenant</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded bg-blue-100 text-blue-700 font-bold"
+                    >Aislado</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-2 relative z-10"
+            >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >PostgreSQL</span
+              >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >Temporal.io</span
+              >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >Redis Cache</span
+              >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >Kafka</span
+              >
+            </div>
+          </div>
+
+          <!-- Card 4: Growth & Marketing Digital de Precisión (7 Cols) -->
+          <div
+            class="reveal md:col-span-12 lg:col-span-7 bg-white border border-slate-200/90 shadow-[0_4px_24px_-4px_rgba(15,23,42,0.06)] spotlight-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between overflow-hidden group hover:shadow-xl hover:border-sky-300 transition-all duration-300"
+          >
+            <div class="relative z-10">
+              <div class="flex items-center justify-between mb-6">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 shadow-sm"
+                >
+                  <i data-lucide="trending-up" class="w-6 h-6"></i>
+                </div>
+                <span
+                  class="text-xs font-mono text-slate-600 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 font-medium"
+                >
+                  Growth Engineering
+                </span>
+              </div>
+
+              <h3
+                class="text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight"
+              >
+                Growth & Marketing Estratégico
+              </h3>
+              <p
+                class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed"
+              >
+                No hacemos marketing empírico. Diseñamos motores sistemáticos de
+                adquisición mediante analítica predictiva, embudos
+                automatizados, atribución multicanal y experimentación continua
+                (CRO).
+              </p>
+
+              <!-- Growth Metrics Visual Box -->
+              <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div
+                  class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-center"
+                >
+                  <div class="text-[11px] font-mono text-slate-500">
+                    CAC OPTIMIZATION
+                  </div>
+                  <div
+                    class="text-xl font-bold font-mono text-emerald-600 mt-1"
+                  >
+                    -38.5%
+                  </div>
+                  <div class="text-[10px] text-slate-500">
+                    Costo de Adquisición
+                  </div>
+                </div>
+                <div
+                  class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-center"
+                >
+                  <div class="text-[11px] font-mono text-slate-500">
+                    CONVERSION LIFT
+                  </div>
+                  <div class="text-xl font-bold font-mono text-blue-600 mt-1">
+                    +240%
+                  </div>
+                  <div class="text-[10px] text-slate-500">Tasa en Embudos</div>
+                </div>
+                <div
+                  class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-center"
+                >
+                  <div class="text-[11px] font-mono text-slate-500">
+                    LTV / PAYBACK
+                  </div>
+                  <div class="text-xl font-bold font-mono text-indigo-600 mt-1">
+                    4.2x
+                  </div>
+                  <div class="text-[10px] text-slate-500">
+                    Retorno de Capital
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-2 relative z-10"
+            >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >Data Pipelines</span
+              >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >Segment CDP</span
+              >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >A/B Testing Framework</span
+              >
+              <span
+                class="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-200"
+                >Semantic SEO</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 4. WORKFLOW / PROCESO EN 4 PASOS                                         -->
+    <!-- ========================================================================= -->
+    <section
+      id="proceso"
+      class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative z-10 border-t border-slate-200"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="reveal text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-50 border border-cyan-200 text-cyan-700 text-xs font-mono uppercase tracking-wider mb-4 font-semibold"
+          >
+            <i data-lucide="git-branch" class="w-3.5 h-3.5"></i>
+            Metodología de Entrega
+          </div>
+          <h2
+            class="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight"
+          >
+            De la visión al despliegue global en 4 fases rigurosas
+          </h2>
+          <p class="mt-4 text-slate-600 text-base sm:text-lg">
+            Un protocolo probado para eliminar la incertidumbre, acelerar el
+            time-to-market y asegurar código de clase mundial.
+          </p>
+        </div>
+
+        <!-- Step Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Step 1 -->
+          <div
+            class="reveal bg-white border border-slate-200/90 shadow-[0_4px_20px_-2px_rgba(15,23,42,0.04)] spotlight-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative group hover:border-blue-300 hover:shadow-xl transition-all duration-300"
+          >
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span
+                  class="text-3xl font-mono font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-sky-500"
+                >
+                  01
+                </span>
+                <div
+                  class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600"
+                >
+                  <i data-lucide="compass" class="w-5 h-5"></i>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-slate-950 tracking-tight">
+                Descubrimiento & Estrategia
+              </h3>
+              <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+                Mapeamos requisitos críticos, analizamos cuellos de botella de
+                negocio y modelamos el dominio de datos antes de escribir una
+                sola línea de código.
+              </p>
+            </div>
+            <div
+              class="mt-6 pt-4 border-t border-slate-100 text-xs font-mono text-slate-500 flex items-center gap-2"
+            >
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+              Arquitectura Preliminar & KPIs
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div
+            class="reveal bg-white border border-slate-200/90 shadow-[0_4px_20px_-2px_rgba(15,23,42,0.04)] spotlight-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative group hover:border-sky-300 hover:shadow-xl transition-all duration-300"
+          >
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span
+                  class="text-3xl font-mono font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-cyan-600"
+                >
+                  02
+                </span>
+                <div
+                  class="w-10 h-10 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600"
+                >
+                  <i data-lucide="pen-tool" class="w-5 h-5"></i>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-slate-950 tracking-tight">
+                Arquitectura & UI/UX
+              </h3>
+              <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+                Sistemas de diseño atómicos en Figma, especificaciones OpenAPI
+                de contratos y esquemas de base de datos optimizados para
+                queries complejas.
+              </p>
+            </div>
+            <div
+              class="mt-6 pt-4 border-t border-slate-100 text-xs font-mono text-slate-500 flex items-center gap-2"
+            >
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+              Prototipos Interactivos & Benchmarks
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div
+            class="reveal bg-white border border-slate-200/90 shadow-[0_4px_20px_-2px_rgba(15,23,42,0.04)] spotlight-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative group hover:border-indigo-300 hover:shadow-xl transition-all duration-300"
+          >
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span
+                  class="text-3xl font-mono font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 to-indigo-600"
+                >
+                  03
+                </span>
+                <div
+                  class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600"
+                >
+                  <i data-lucide="code-2" class="w-5 h-5"></i>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-slate-950 tracking-tight">
+                Desarrollo Ágil & CI/CD
+              </h3>
+              <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+                Sprints iterativos de 2 semanas, revisiones peer-to-peer
+                estrictas, pruebas de integración automatizadas y entregables
+                palpables en staging continuo.
+              </p>
+            </div>
+            <div
+              class="mt-6 pt-4 border-t border-slate-100 text-xs font-mono text-slate-500 flex items-center gap-2"
+            >
+              <span class="w-1.5 h-1.5 rounded-full bg-indigo-600"></span>
+              Staging Diaria & 90%+ Test Coverage
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div
+            class="reveal bg-white border border-slate-200/90 shadow-[0_4px_20px_-2px_rgba(15,23,42,0.04)] spotlight-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative group hover:border-emerald-300 hover:shadow-xl transition-all duration-300"
+          >
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span
+                  class="text-3xl font-mono font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-emerald-600"
+                >
+                  04
+                </span>
+                <div
+                  class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600"
+                >
+                  <i data-lucide="rocket" class="w-5 h-5"></i>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-slate-950 tracking-tight">
+                Despliegue & Escala
+              </h3>
+              <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+                Lanzamiento con zero downtime, monitorización distribuida,
+                telemetría de conversión y optimizaciones continuas para
+                maximizar el ROI.
+              </p>
+            </div>
+            <div
+              class="mt-6 pt-4 border-t border-slate-100 text-xs font-mono text-slate-500 flex items-center gap-2"
+            >
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+              Observabilidad 24/7 & Escala Global
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 5. MÉTRICAS & SOCIAL PROOF                                                -->
+    <!-- ========================================================================= -->
+    <section
+      id="metricas"
+      class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative z-10 bg-slate-100/70 border-y border-slate-200"
+    >
+      <div class="max-w-7xl mx-auto">
+        <!-- Metrics Tabular Grid -->
+        <div
+          class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-20 text-center"
+        >
+          <div class="reveal flex flex-col items-center">
+            <div
+              class="text-4xl sm:text-6xl font-black font-mono tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-700 to-sky-600"
+            >
+              +99.99%
+            </div>
+            <div class="mt-2 text-sm font-semibold text-slate-800">
+              Uptime SLA Garantizado
+            </div>
+            <div class="text-xs font-mono text-slate-500 mt-0.5">
+              En infraestructuras cloud críticas
+            </div>
+          </div>
+
+          <div class="reveal flex flex-col items-center">
+            <div
+              class="text-4xl sm:text-6xl font-black font-mono tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-sky-700 to-cyan-600"
+            >
+              &lt; 14ms
+            </div>
+            <div class="mt-2 text-sm font-semibold text-slate-800">
+              Latencia Media Global
+            </div>
+            <div class="text-xs font-mono text-slate-500 mt-0.5">
+              Enrutamiento Edge inteligente
+            </div>
+          </div>
+
+          <div class="reveal flex flex-col items-center">
+            <div
+              class="text-4xl sm:text-6xl font-black font-mono tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-indigo-700 to-blue-600"
+            >
+              +45M
+            </div>
+            <div class="mt-2 text-sm font-semibold text-slate-800">
+              Peticiones Mensuales
+            </div>
+            <div class="text-xs font-mono text-slate-500 mt-0.5">
+              Procesadas con cero fricción
+            </div>
+          </div>
+
+          <div class="reveal flex flex-col items-center">
+            <div
+              class="text-4xl sm:text-6xl font-black font-mono tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-emerald-700 to-cyan-600"
+            >
+              4.9 / 5
+            </div>
+            <div class="mt-2 text-sm font-semibold text-slate-800">
+              Calificación de Clientes
+            </div>
+            <div class="text-xs font-mono text-slate-500 mt-0.5">
+              Retención de proyectos a largo plazo
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Stack Ticker / Logos Cloud -->
+        <div class="reveal pt-12 border-t border-slate-200 text-center">
+          <p
+            class="text-xs font-mono uppercase tracking-widest text-slate-500 mb-8 font-medium"
+          >
+            TECNOLOGÍAS & ESTÁNDARES EN LOS QUE CONFIAMOS
           </p>
 
-          <!-- System Status Pill -->
-          <div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-400">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>All systems operational (v2.6.4 · Edge Mesh)</span>
+          <div
+            class="flex flex-wrap items-center justify-center gap-8 sm:gap-14 text-slate-700"
+          >
+            <div
+              class="flex items-center gap-2 font-mono text-sm hover:text-blue-600 transition"
+            >
+              <i data-lucide="terminal" class="w-4 h-4 text-blue-600"></i>
+              TypeScript
+            </div>
+            <div
+              class="flex items-center gap-2 font-mono text-sm hover:text-blue-600 transition"
+            >
+              <i data-lucide="layers" class="w-4 h-4 text-sky-600"></i> Next.js
+              15
+            </div>
+            <div
+              class="flex items-center gap-2 font-mono text-sm hover:text-blue-600 transition"
+            >
+              <i data-lucide="cpu" class="w-4 h-4 text-orange-600"></i> Rust
+              Core
+            </div>
+            <div
+              class="flex items-center gap-2 font-mono text-sm hover:text-blue-600 transition"
+            >
+              <i data-lucide="server" class="w-4 h-4 text-cyan-600"></i>
+              Kubernetes
+            </div>
+            <div
+              class="flex items-center gap-2 font-mono text-sm hover:text-blue-600 transition"
+            >
+              <i data-lucide="database" class="w-4 h-4 text-indigo-600"></i>
+              PostgreSQL
+            </div>
+            <div
+              class="flex items-center gap-2 font-mono text-sm hover:text-blue-600 transition"
+            >
+              <i data-lucide="cloud" class="w-4 h-4 text-amber-600"></i> AWS
+              Architecture
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 6. CTA DE CONVERSIÓN FINAL                                               -->
+    <!-- ========================================================================= -->
+    <section
+      id="contacto"
+      class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative z-10"
+    >
+      <div class="max-w-5xl mx-auto">
+        <div
+          class="reveal relative rounded-3xl p-[1.5px] bg-gradient-to-r from-blue-600 via-sky-500 to-indigo-600 shadow-xl shadow-blue-500/10"
+        >
+          <div
+            class="rounded-[22px] bg-white p-8 sm:p-14 text-center relative overflow-hidden"
+          >
+            <!-- Background Glow Orbs inside card -->
+            <div
+              class="absolute -top-24 -right-24 w-72 h-72 bg-sky-200/40 rounded-full blur-[70px] pointer-events-none"
+            ></div>
+            <div
+              class="absolute -bottom-24 -left-24 w-72 h-72 bg-blue-200/40 rounded-full blur-[70px] pointer-events-none"
+            ></div>
+
+            <!-- Content -->
+            <div class="relative z-10 max-w-3xl mx-auto">
+              <div
+                class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-mono mb-6 font-semibold"
+              >
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                Capacidad Disponible para Nuevos Proyectos
+              </div>
+
+              <h2
+                class="text-3xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight"
+              >
+                ¿Listo para construir el software que definirá tu industria?
+              </h2>
+
+              <p
+                class="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto"
+              >
+                Recibe un análisis técnico preliminar de tu arquitectura o una
+                estimación detallada para tu próxima app o sistema empresarial.
+              </p>
+
+              <!-- Single Field Enterprise Lead Capture Form -->
+              <form
+                id="lead-form"
+                onsubmit="handleLeadSubmit(event)"
+                class="mt-9 max-w-xl mx-auto"
+              >
+                <div
+                  class="flex flex-col sm:flex-row items-stretch gap-3 p-1.5 rounded-2xl bg-slate-50 border border-slate-300 focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-500/20 focus-within:bg-white transition-all duration-300"
+                >
+                  <input
+                    type="email"
+                    id="lead-email"
+                    required
+                    placeholder="Introduce tu correo corporativo..."
+                    class="flex-1 px-4 py-3 bg-transparent text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none font-sans"
+                  />
+                  <button
+                    type="submit"
+                    id="lead-submit-btn"
+                    class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-blue-600 to-sky-600 hover:from-blue-700 hover:to-sky-700 shadow-md shadow-blue-500/25 hover:shadow-lg hover:shadow-blue-500/35 transition-all duration-200"
+                  >
+                    <span id="btn-text">Solicitar Diagnóstico</span>
+                    <i
+                      data-lucide="arrow-right"
+                      id="btn-icon"
+                      class="w-4 h-4"
+                    ></i>
+                  </button>
+                </div>
+
+                <!-- Real-time Feedback Message Box -->
+                <div
+                  id="form-feedback"
+                  class="mt-3 text-xs font-mono hidden transition-all duration-300"
+                ></div>
+              </form>
+
+              <!-- Guarantee Badges -->
+              <div
+                class="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500 font-mono"
+              >
+                <span class="flex items-center gap-1.5">
+                  <i
+                    data-lucide="shield-check"
+                    class="w-3.5 h-3.5 text-blue-600"
+                  ></i>
+                  NDA Estándar Disponible
+                </span>
+                <span class="flex items-center gap-1.5">
+                  <i data-lucide="clock" class="w-3.5 h-3.5 text-sky-600"></i>
+                  Respuesta en &lt; 4 Horas
+                </span>
+                <span class="flex items-center gap-1.5">
+                  <i
+                    data-lucide="check-circle-2"
+                    class="w-3.5 h-3.5 text-emerald-600"
+                  ></i>
+                  Sin Compromiso Comercial
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 7. FOOTER TÉCNICO                                                         -->
+    <!-- ========================================================================= -->
+    <footer
+      class="border-t border-slate-200 bg-white pt-16 pb-12 px-4 sm:px-6 lg:px-8 relative z-10"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div
+          class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-200"
+        >
+          <!-- Column 1: Brand & Status (5 cols) -->
+          <div class="md:col-span-5 space-y-4">
+            <a href="#hero" class="flex items-center gap-2.5">
+              <div
+                class="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-sky-500 p-[1px]"
+              >
+                <div
+                  class="w-full h-full bg-white rounded-[7px] flex items-center justify-center"
+                >
+                  <svg
+                    class="w-4 h-4 text-blue-600"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                  >
+                    <path d="m12 3-8 4.5v9L12 21l8-4.5v-9L12 3Z" />
+                    <path d="M12 12v9" />
+                  </svg>
+                </div>
+              </div>
+              <span class="font-bold text-slate-900 tracking-tight text-lg">
+                nusame<span class="text-blue-600 font-mono text-sm">.dev</span>
+              </span>
+            </a>
+
+            <p class="text-slate-600 text-sm max-w-sm leading-relaxed">
+              Agencia boutique de ingeniería de software, arquitecturas cloud
+              distribuidas, aplicaciones de alta fidelidad y crecimiento
+              estratégico de impacto.
+            </p>
+
+            <!-- System Status Pill -->
+            <div
+              class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono text-emerald-700 font-medium"
+            >
+              <span
+                class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"
+              ></span>
+              <span>All systems operational (v2.6.4 · Edge Mesh)</span>
+            </div>
+          </div>
+
+          <!-- Column 2: Servicios (2 cols) -->
+          <div class="md:col-span-2 space-y-3">
+            <div
+              class="text-xs font-mono uppercase tracking-wider text-slate-900 font-bold"
+            >
+              Servicios
+            </div>
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li>
+                <a href="#servicios" class="hover:text-blue-600 transition"
+                  >Apps Móviles & Web</a
+                >
+              </li>
+              <li>
+                <a href="#servicios" class="hover:text-blue-600 transition"
+                  >Cloud & Microservicios</a
+                >
+              </li>
+              <li>
+                <a href="#servicios" class="hover:text-blue-600 transition"
+                  >Sistemas ERP a Medida</a
+                >
+              </li>
+              <li>
+                <a href="#servicios" class="hover:text-blue-600 transition"
+                  >Growth Engineering</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Arquitectura (2 cols) -->
+          <div class="md:col-span-2 space-y-3">
+            <div
+              class="text-xs font-mono uppercase tracking-wider text-slate-900 font-bold"
+            >
+              Tecnologías
+            </div>
+            <ul class="space-y-2 text-sm text-slate-600 font-mono text-xs">
+              <li>
+                <span class="hover:text-blue-600 transition cursor-default"
+                  >Next.js & React</span
+                >
+              </li>
+              <li>
+                <span class="hover:text-blue-600 transition cursor-default"
+                  >Flutter & Swift</span
+                >
+              </li>
+              <li>
+                <span class="hover:text-blue-600 transition cursor-default"
+                  >Rust & Go APIs</span
+                >
+              </li>
+              <li>
+                <span class="hover:text-blue-600 transition cursor-default"
+                  >Kubernetes & AWS</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Contacto & Social (3 cols) -->
+          <div class="md:col-span-3 space-y-3">
+            <div
+              class="text-xs font-mono uppercase tracking-wider text-slate-900 font-bold"
+            >
+              Contacto Directo
+            </div>
+            <p class="text-sm text-slate-600 font-mono">hola@nusame.dev</p>
+            <div class="flex items-center gap-3 pt-2">
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-9 h-9 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:border-blue-300 transition-colors"
+                aria-label="GitHub"
+              >
+                <i data-lucide="github" class="w-4 h-4"></i>
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-9 h-9 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:border-blue-300 transition-colors"
+                aria-label="Twitter"
+              >
+                <i data-lucide="twitter" class="w-4 h-4"></i>
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-9 h-9 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-600 hover:text-blue-600 hover:border-blue-300 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <i data-lucide="linkedin" class="w-4 h-4"></i>
+              </a>
+            </div>
           </div>
         </div>
 
-        <!-- Column 2: Servicios (2 cols) -->
-        <div class="md:col-span-2 space-y-3">
-          <div class="text-xs font-mono uppercase tracking-wider text-white font-semibold">Servicios</div>
-          <ul class="space-y-2 text-sm text-slate-400">
-            <li><a href="#servicios" class="hover:text-white transition">Apps Móviles & Web</a></li>
-            <li><a href="#servicios" class="hover:text-white transition">Cloud & Microservicios</a></li>
-            <li><a href="#servicios" class="hover:text-white transition">Sistemas ERP a Medida</a></li>
-            <li><a href="#servicios" class="hover:text-white transition">Growth Engineering</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 3: Arquitectura (2 cols) -->
-        <div class="md:col-span-2 space-y-3">
-          <div class="text-xs font-mono uppercase tracking-wider text-white font-semibold">Tecnologías</div>
-          <ul class="space-y-2 text-sm text-slate-400 font-mono text-xs">
-            <li><span class="hover:text-sky-400 transition cursor-default">Next.js & React</span></li>
-            <li><span class="hover:text-sky-400 transition cursor-default">Flutter & Swift</span></li>
-            <li><span class="hover:text-sky-400 transition cursor-default">Rust & Go APIs</span></li>
-            <li><span class="hover:text-sky-400 transition cursor-default">Kubernetes & AWS</span></li>
-          </ul>
-        </div>
-
-        <!-- Column 4: Contacto & Social (3 cols) -->
-        <div class="md:col-span-3 space-y-3">
-          <div class="text-xs font-mono uppercase tracking-wider text-white font-semibold">Contacto Directo</div>
-          <p class="text-sm text-slate-400 font-mono">
-            hola@nusame.dev
-          </p>
-          <div class="flex items-center gap-3 pt-2">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-white hover:border-sky-400/40 transition-colors" aria-label="GitHub">
-              <i data-lucide="github" class="w-4 h-4"></i>
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-white hover:border-sky-400/40 transition-colors" aria-label="Twitter">
-              <i data-lucide="twitter" class="w-4 h-4"></i>
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-300 hover:text-white hover:border-sky-400/40 transition-colors" aria-label="LinkedIn">
-              <i data-lucide="linkedin" class="w-4 h-4"></i>
-            </a>
+        <!-- Copyright & Bottom Bar -->
+        <div
+          class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500"
+        >
+          <div>© 2026 nusame.dev. Todos los derechos reservados.</div>
+          <div class="flex items-center gap-6">
+            <a href="#" class="hover:text-slate-900 transition">Privacidad</a>
+            <a href="#" class="hover:text-slate-900 transition"
+              >Términos de Servicio</a
+            >
+            <a href="#" class="hover:text-slate-900 transition"
+              >Seguridad & Cumplimiento</a
+            >
           </div>
         </div>
-
       </div>
-
-      <!-- Copyright & Bottom Bar -->
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
-        <div>
-          © 2026 nusame.dev. Todos los derechos reservados.
-        </div>
-        <div class="flex items-center gap-6">
-          <a href="#" class="hover:text-white transition">Privacidad</a>
-          <a href="#" class="hover:text-white transition">Términos de Servicio</a>
-          <a href="#" class="hover:text-white transition">Seguridad & Cumplimiento</a>
-        </div>
-      </div>
-
-    </div>
-  </footer>
-
-  <!-- ========================================================================= -->
-  <!-- JAVASCRIPT LIGERO: MICROINTERACCIONES, INTERSECTIONOBSERVER & SPOTLIGHT  -->
-  <!-- ========================================================================= -->
-  <script>
-    // 1. Initialize Lucide Icons
-    document.addEventListener('DOMContentLoaded', () => {
-      if (window.lucide) {
-        window.lucide.createIcons();
-      }
-    });
-
-    // 2. Navbar Blur on Scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
-        navbar.classList.add('bg-slate-950/80', 'border-white/10');
-        navbar.classList.remove('bg-slate-900/45');
-      } else {
-        navbar.classList.remove('bg-slate-950/80', 'border-white/10');
-        navbar.classList.add('bg-slate-900/45');
-      }
-    }, { passive: true });
-
-    // 3. Mobile Navigation Drawer Toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
-
-    if (mobileMenuBtn && mobileMenu) {
-      mobileMenuBtn.addEventListener('click', () => {
-        const isHidden = mobileMenu.classList.contains('hidden');
-        if (isHidden) {
-          mobileMenu.classList.remove('hidden');
-          mobileMenu.classList.add('flex');
-        } else {
-          mobileMenu.classList.add('hidden');
-          mobileMenu.classList.remove('flex');
-        }
-      });
-
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-          mobileMenu.classList.remove('flex');
-        });
-      });
-    }
-
-    // 4. Spotlight Border Effect on Hover for Cards
-    const spotlightCards = document.querySelectorAll('.spotlight-card');
-    spotlightCards.forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-      });
-    });
-
-    // 5. Hero Dashboard Tab Switcher
-    function switchHeroTab(tabId) {
-      const tabs = ['telemetry', 'architecture', 'pipeline'];
-      tabs.forEach(tab => {
-        const content = document.getElementById(`tab-content-${tab}`);
-        const btn = document.getElementById(`tab-btn-${tab}`);
-        if (content && btn) {
-          if (tab === tabId) {
-            content.classList.remove('hidden');
-            btn.className = "px-2.5 py-1 rounded-md text-white bg-blue-600/30 border border-blue-500/40 transition";
-          } else {
-            content.classList.add('hidden');
-            btn.className = "px-2.5 py-1 rounded-md text-slate-400 hover:text-white transition";
-          }
-        }
-      });
-      if (window.lucide) {
-        window.lucide.createIcons();
-      }
-    }
-
-    // 6. IntersectionObserver for Reveal Animations
-    const revealElements = document.querySelectorAll('.reveal');
-    if ('IntersectionObserver' in window) {
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        root: null,
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
-      });
-
-      revealElements.forEach(el => revealObserver.observe(el));
-    } else {
-      // Fallback if browser doesn't support IntersectionObserver
-      revealElements.forEach(el => el.classList.add('active'));
-    }
-
-    // 7. Lead Generation Form Handling with Micro-feedback
-    function handleLeadSubmit(event) {
-      event.preventDefault();
-      const emailInput = document.getElementById('lead-email');
-      const submitBtn = document.getElementById('lead-submit-btn');
-      const btnText = document.getElementById('btn-text');
-      const feedback = document.getElementById('form-feedback');
-
-      if (!emailInput || !submitBtn || !feedback) return;
-
-      const email = emailInput.value.trim();
-      if (!email || !email.includes('@')) {
-        feedback.className = "mt-3 text-xs font-mono text-rose-400 block";
-        feedback.textContent = "⚠ Por favor, introduce una dirección de correo válida.";
-        return;
-      }
-
-      // Simulated Loading State
-      submitBtn.disabled = true;
-      btnText.textContent = "Procesando...";
-
-      setTimeout(() => {
-        submitBtn.disabled = false;
-        btnText.textContent = "Enviado con Éxito";
-        emailInput.value = "";
-        
-        feedback.className = "mt-3 text-xs font-mono text-emerald-400 block bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-500/20";
-        feedback.innerHTML = "✓ <strong>Solicitud recibida:</strong> Uno de nuestros arquitectos de software te contactará en menos de 4 horas hábiles.";
-
-        setTimeout(() => {
-          btnText.textContent = "Solicitar Diagnóstico";
-        }, 5000);
-      }, 750);
-    }
-  </script>
-</body>
+    </footer>
+  </body>
 </html>
