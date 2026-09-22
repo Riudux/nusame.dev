@@ -92,3 +92,4 @@ function initScrollReveal() {
     revealElements.forEach(el => el.classList.add('active'));
   }
 }
+
